@@ -20,7 +20,7 @@ namespace GetUserInfo
                 response = Console.ReadLine();
             }
             Answers(UI);
-            if (response.ToLower() == "no")
+            if (petNames.Count == 0)
             {
                 Console.WriteLine("You do not have any animal companions.");
             }
