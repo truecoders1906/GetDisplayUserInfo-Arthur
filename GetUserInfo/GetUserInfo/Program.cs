@@ -20,16 +20,16 @@ namespace GetUserInfo
                 response = Console.ReadLine();
             }
             Answers(UI);
-            if (response == "yes")
+            if (response.ToLower() == "no")
+            {
+                Console.WriteLine("You do not have any animal companions.");
+            }
+            else
             {
                 foreach (string petName in petNames)
                 {
                     Console.WriteLine(petName + " is a loyal companion of yours.");
                 }
-            }
-            else
-            {
-                Console.WriteLine("You do not have any animal companions.");
             }
         }
 
