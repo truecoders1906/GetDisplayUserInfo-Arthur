@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GetUserInfo
 {
@@ -7,7 +8,29 @@ namespace GetUserInfo
         static void Main(string[] args)
         {
             UserInfo UI = Questions();
+            Console.WriteLine("Do you have any pets?");
+            string response = Console.ReadLine();
+            List<string> petNames = new List<string>();
+            while (response.ToLower() == "yes")
+            {
+                Console.WriteLine("What is the name of one of your pets?");
+                string petName = Console.ReadLine();
+                petNames.Add(petName);
+                Console.WriteLine("Do you have any more pets?");
+                response = Console.ReadLine();
+            }
             Answers(UI);
+            if (petNames == null)
+            {
+                Console.WriteLine("You do not have any animal companions.");
+            }
+            else
+            {
+                foreach (string petName in petNames)
+                {
+                    Console.WriteLine(petName + " is a loyal companion of yours.");
+                }
+            }
         }
 
         static UserInfo Questions()
@@ -40,7 +63,5 @@ namespace GetUserInfo
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int FavoriteNumber { get; set; }
-        public int NumberOfPets { get; set; }
-        public string NamesOfAllPets { get; set; }
     }
 }
